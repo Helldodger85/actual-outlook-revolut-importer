@@ -1,0 +1,11 @@
+version: '3'
+services:
+  importer:
+    image: node:18-alpine
+    working_dir: /app
+    command: sh -c "npm install && node import.js"
+    volumes:
+      - /home/docker/revolut-import/data:/app/data
+    environment:
+      - ACTUAL_SERVER_URL=https://budget.kingstonandson.org
+      - ACTUAL_BUDGET_ID=bb261fb0-c001-433c-8d20-5bce5c7f9f4d
